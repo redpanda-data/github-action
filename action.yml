@@ -1,0 +1,14 @@
+name: "Redpanda"
+description: "Setup Redpanda"
+author: "fernandes"
+branding:
+  icon: fast-forward
+  color: red
+inputs:
+  version:
+    description: "Version of Redpanda Kafka to use"
+    required: false
+    default: "latest"
+runs:
+  using: "docker"
+  image: "Dockerfile"
