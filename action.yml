@@ -1,4 +1,4 @@
-name: "Redpanda"
+name: "redpanda-action"
 description: "Setup Redpanda"
 author: "fernandes"
 branding:

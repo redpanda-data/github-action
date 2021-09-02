@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 read -r -d '' RUN_KAFKA <<EOF
 docker run -d --pull=always --rm \
