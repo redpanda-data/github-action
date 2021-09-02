@@ -6,7 +6,7 @@ branding:
   color: red
 inputs:
   version:
-    description: "Version of Redpanda Kafka to use"
+    description: "Version of Redpanda to use"
     required: false
     default: "latest"
 runs:
