@@ -2,7 +2,7 @@
 
 This [GitHub Action](https://github.com/features/actions) sets up Redpanda instance.
 
-Docker images source [vectorized/redpanda](https://hub.docker.com/r/vectorized/redpanda).
+Docker images source [redpanda-data/redpanda](docker.vectorized.io/vectorized/redpanda).
 
 ---------
 ## Usage
@@ -12,7 +12,7 @@ See [action.yml](action.yml)
 Basic:
 ```yaml
     - name: Start Redpanda
-      uses: fernandes/redpanda-action@v0.1.0
+      uses: redpanda-data/github-action@v0.1.0
       with:
         version: "latest"
 ```
