@@ -11,8 +11,8 @@ See [action.yml](action.yml)
 
 Basic:
 ```yaml
-    - name: Start Redpanda
-      uses: redpanda-data/github-action@v0.1.0
+    - name: start redpanda
+      uses: redpanda-data/github-action@v0.1.3
       with:
         version: "latest"
 ```
