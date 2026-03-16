@@ -1,6 +1,6 @@
 name: "redpanda-action"
-description: "Setup Redpanda"
-author: "fernandes"
+description: "Setup Redpanda Single or Cluster Mode"
+author: "Debabrata Patnaik/Celso Fernandes/Alexander Gallego"
 branding:
   icon: fast-forward
   color: red
@@ -9,6 +9,34 @@ inputs:
     description: "Version of Redpanda to use"
     required: false
     default: "latest"
+  cluster_mode:
+    description: "Whether to run Redpanda in three node cluster mode"
+    required: false
+    default: "false"
 runs:
-  using: "docker"
-  image: "Dockerfile"
+  using: composite
+  steps:
+    - name: Cluster Input Details
+      shell: bash
+      run: |
+        echo "Starting redpanda broker/cluster with version: redpandadata/redpanda:${{ inputs.version }}"
+        echo "Cluster Mode: ${{ inputs.cluster_mode }}"
+    - name: Start Redpanda Single Node Broker
+      if: inputs.cluster_mode != 'true'
+      run: REDPANDA_IMAGE_TAG="${{ inputs.version }}" docker compose -f ${{ github.action_path }}/docker-compose-single.yml up -d
+      shell: bash
+    - name: Start Redpanda Three Node Cluster
+      shell: bash
+      if: inputs.cluster_mode == 'true'
+      run: REDPANDA_IMAGE_TAG="${{ inputs.version }}" docker compose -f ${{ github.action_path }}/docker-compose-three-node-cluster.yml up -d
+    - name: Print Redpanda cluster details
+      shell: bash
+      if: success()
+      run: |
+        echo "Redpanda configured"
+        echo "Container Details"
+        docker container ls | grep redpanda
+        echo "Network Details"
+        docker network ls | grep redpanda
+        echo "Volume Details"
+        docker volume ls | grep redpanda
