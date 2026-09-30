@@ -71,19 +71,19 @@ brew install redpanda-data/tap/redpanda && rpk container start
 ### On Debian/Ubuntu
 
 ```
-curl -1sLf \
-  'https://packages.vectorized.io/nzc4ZYQK3WRGd9sy/redpanda/cfg/setup/bash.deb.sh' \
-  | sudo -E bash
+curl -fsSL --tlsv1.2 \
+  'https://linux.pkg.redpanda.com/setup-redpanda.deb.sh' \
+  | sudo bash
   
 sudo apt-get install redpanda
 ```
 
-### On Fedora/RedHat/Amazon Linux
+### On Fedora/RHEL 8+/Amazon Linux 2023
 
 ```
-curl -1sLf \
-  'https://packages.vectorized.io/nzc4ZYQK3WRGd9sy/redpanda/cfg/setup/bash.rpm.sh' \
-  | sudo -E bash
+curl -fsSL --tlsv1.2 \
+  'https://linux.pkg.redpanda.com/setup-redpanda.rpm.sh' \
+  | sudo bash
   
 sudo yum install redpanda
 ```
