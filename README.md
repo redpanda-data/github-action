@@ -2,7 +2,7 @@
 
 This [GitHub Action](https://github.com/features/actions) sets up Redpanda instance.
 
-Docker images source [redpanda-data/redpanda](docker.vectorized.io/vectorized/redpanda).
+Docker images source [redpanda-data/redpanda](https://hub.docker.com/r/redpandadata/redpanda).
 
 ---------
 # Usage
@@ -102,41 +102,3 @@ sudo ./install-dependencies.sh && CC=clang CXX=clang++ ./build.sh
 ```
 
 For quicker dev setup, we provide a [docker image](tools/docker/README.md) with the toolchain installed.
-
-# Beta builds
-
-For those of us who like to live on the edge!
-
-We can cut a release at any point from the `/dev` branch if you want to test a particular feature.
-Simply let us know you would like to test a feature from dev and we're happy to cut a beta release.
-
-
-## Beta releases on Debian/Ubuntu
-
-```
-curl -1sLf \
-  'https://packages.vectorized.io/HxYRCzL4xbbaEtPi/redpanda-beta/setup.deb.sh' \
-  | sudo -E bash
-  
-sudo apt-get install redpanda
-```
-
-## Beta releases on Fedora/RedHat/Amazon Linux
-
-```
-curl -1sLf \
-  'https://packages.vectorized.io/HxYRCzL4xbbaEtPi/redpanda-beta/setup.rpm.sh' \
-  | sudo -E bash
-  
-sudo yum install redpanda
-```
-
-## Beta releases on Docker
-
-This is an example with the `v21.3.5-beta3` version prior to the 21.3.5 release.
-
-```
-# example!
-docker.vectorized.io/vectorized/redpanda:v21.3.5-beta3
-```
-
